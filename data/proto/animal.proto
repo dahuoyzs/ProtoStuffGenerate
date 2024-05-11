@@ -1,8 +1,6 @@
 syntax = "proto3"; // 指定使用的语法版本
 package com.protobuf.pb;
 
-// C# 相关设置
-//option csharp_namespace = "ExampleNamespace"; // 设置C#命名空间
 
 /* --------------------------------------------------------------------------- */
 

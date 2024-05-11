@@ -4,10 +4,7 @@ package cn.bigfire.stuff.util;
 
 import cn.bigfire.stuff.bo.ProtoInfo;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,8 +37,13 @@ public class Utils {
         pb2JavaMap.put("sfixed64", "long");
     }
 
-
-
+    public static String getPackageStr() {
+        String packStr = "package " + Utils.protoInfo.getPackageName() + ";\n";
+        if (Utils.isNotBlank(Utils.protoInfo.getPackageName())) {
+            packStr = "\n";
+        }
+        return packStr;
+    }
 
     /**
      * 检查字符串是否不为空白。
@@ -117,22 +119,35 @@ public class Utils {
         return str;
     }
 
+    public static byte[] readAllBytes(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096]; // 缓冲区大小，可以根据需要调整
+        int bytesRead;
+
+        while ((bytesRead = inputStream.read(buffer)) != -1) {
+            byteArrayOutputStream.write(buffer, 0, bytesRead);
+        }
+
+        // 将ByteArrayOutputStream的内容转换为byte数组
+        byte[] result = byteArrayOutputStream.toByteArray();
+
+        // 关闭流并释放资源
+        byteArrayOutputStream.close();
+
+        // 返回结果
+        return result;
+    }
 
     /**
-     * 从输入流中读取UTF-8编码的字符串。
-     * @param inputStream 输入流
-     * @return 返回读取的字符串
-     * @throws IOException 如果发生I/O错误
+     * 从InputStream中读取文本内容并返回为一个String
+     *
+     * @param inputStream 要读取的InputStream
+     * @return 读取到的文本内容
+     * @throws IOException 如果读取过程中发生错误
      */
     public static String readUTF8Str(InputStream inputStream) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-            }
-        }
-        return sb.toString();
+        byte[] bytes = readAllBytes(inputStream);
+        return new String(bytes, "UTF-8");
     }
 
     public static void write(String filePath, String content) {

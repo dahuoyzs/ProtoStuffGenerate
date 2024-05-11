@@ -47,7 +47,7 @@ public class GenStuffBean {
     //生成多文件代码
     public static void genMultiple(ProtoInfo protoInfo){
 
-        String packStr = "package " + Utils.protoInfo.getPackageName() + ";\n";
+        String packStr = Utils.getPackageStr();
         String importStr = "import java.util.*;\n" +
                 "import java.lang.*;\n" +
                 "import io.protostuff.Tag;\n";
@@ -110,7 +110,8 @@ public class GenStuffBean {
     //生成单文件代码
     public static void genSingle(ProtoInfo protoInfo){
         String targetFileName = Utils.genDir +  Utils.upperFirst(Utils.beanName) + ".java";
-        String packAndImportStr = "package " + Utils.protoInfo.getPackageName() + ";\n" +
+        String packStr = Utils.getPackageStr();
+        String packAndImportStr = packStr +
                 "import java.util.*;\n" +
                 "import java.lang.*;\n" +
                 "import io.protostuff.Tag;\n";
