@@ -32,16 +32,23 @@ public class GenJavaBeanAction extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
+        new Thread(()->{
+            doAction(e);
+        }).start();
+    }
+
+    public void doAction(AnActionEvent e){
         try {
             Project project = e.getProject();
             VirtualFile virtualFile = CommonDataKeys.VIRTUAL_FILE.getData(e.getDataContext());
             if (project == null || virtualFile == null || !virtualFile.getName().endsWith(".proto")) {
                 return;
             }
+
             //read proto str
             VirtualFile fileDirectory = virtualFile.getParent();
             String name = virtualFile.getName();
-            String before = Utils.subBefore(name, ".proto", true);
+            String before = Utils.subBefore(name, ".proto", false);
             Utils.beanName = Utils.upperFirst(before);
             String protoStr = Utils.readUTF8Str(virtualFile.getInputStream());
 
@@ -85,7 +92,6 @@ public class GenJavaBeanAction extends AnAction {
             Notification notification = notificationGroup.createNotification("ProtoStuff Generate err:" + ex.getMessage(), MessageType.ERROR);
             Notifications.Bus.notify(notification);
         }
-
     }
 
 
