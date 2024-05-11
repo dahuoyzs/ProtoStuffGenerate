@@ -3,7 +3,6 @@ package cn.bigfire.stuff.gentlp;
 import cn.bigfire.stuff.bo.FieldInfo;
 import cn.bigfire.stuff.bo.ProtoInfo;
 import cn.bigfire.stuff.util.Utils;
-import cn.hutool.core.util.StrUtil;
 
 public class GenStuffBean {
 
@@ -67,7 +66,7 @@ public class GenStuffBean {
             String enumCode = enumStart + fieldSb + enumMethod + END;
             //代码生成
             String code = packStr + enumCode;
-            String targetFileName = Utils.genDir + StrUtil.upperFirst(enumName) + ".java";
+            String targetFileName = Utils.genDir + Utils.upperFirst(enumName) + ".java";
 //            System.out.println("code:" + code);
 //            System.out.println("targetFileName:" + targetFileName);
             Utils.write(targetFileName, code);
@@ -93,7 +92,7 @@ public class GenStuffBean {
             for (FieldInfo fieldInfo : fieldInfos) {
                 String type = fieldInfo.getBeanType();
                 String fieldName = fieldInfo.getBeanName();
-                String upFieldName = StrUtil.upperFirst(fieldInfo.getBeanName());
+                String upFieldName = Utils.upperFirst(fieldInfo.getBeanName());
                 methodSb.append(String.format(beanGetMethodTlp, type, upFieldName, fieldName));
                 methodSb.append(String.format(beanSetMethodTlp, upFieldName, type, fieldName, fieldName, fieldName));
             }
@@ -101,7 +100,7 @@ public class GenStuffBean {
 
             //代码生成
             String code = packStr + importStr + beanCode;
-            String targetFileName = Utils.genDir +  StrUtil.upperFirst(objName) + ".java";
+            String targetFileName = Utils.genDir +  Utils.upperFirst(objName) + ".java";
 //            System.out.println("code:" + code);
 //            System.out.println("targetFileName:" + targetFileName);
             Utils.write(targetFileName, code);
@@ -110,7 +109,7 @@ public class GenStuffBean {
 
     //生成单文件代码
     public static void genSingle(ProtoInfo protoInfo){
-        String targetFileName = Utils.genDir +  StrUtil.upperFirst(Utils.beanName) + ".java";
+        String targetFileName = Utils.genDir +  Utils.upperFirst(Utils.beanName) + ".java";
         String packAndImportStr = "package " + Utils.protoInfo.getPackageName() + ";\n" +
                 "import java.util.*;\n" +
                 "import java.lang.*;\n" +
@@ -154,7 +153,7 @@ public class GenStuffBean {
             for (FieldInfo fieldInfo : fieldInfos) {
                 String type = fieldInfo.getBeanType();
                 String fieldName = fieldInfo.getBeanName();
-                String upFieldName = StrUtil.upperFirst(fieldInfo.getBeanName());
+                String upFieldName = Utils.upperFirst(fieldInfo.getBeanName());
                 methodSb.append(String.format(beanGetMethodTlp, type, upFieldName, fieldName));
                 methodSb.append(String.format(beanSetMethodTlp, upFieldName, type, fieldName, fieldName, fieldName));
             }

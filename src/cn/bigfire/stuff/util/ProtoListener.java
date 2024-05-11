@@ -6,7 +6,6 @@ import cn.bigfire.stuff.antlr.gen.Protobuf3Parser;
 import cn.bigfire.stuff.bo.FieldInfo;
 import cn.bigfire.stuff.bo.ProtoInfo;
 import cn.bigfire.stuff.config.MyPluginSettings;
-import cn.hutool.core.util.StrUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +74,7 @@ public class ProtoListener extends Protobuf3BaseListener {
                 fieldInfo.setBeanType(beanType);
             }
             if (MyPluginSettings.getInstance().isFieldToCamelCase()) {
-                fieldInfo.setBeanName(StrUtil.toCamelCase(fieldInfo.getPbName()));
+                fieldInfo.setBeanName(Utils.toCamelCase(fieldInfo.getPbName()));
             } else {
                 fieldInfo.setBeanName(fieldInfo.getPbName());
             }
@@ -102,7 +101,7 @@ public class ProtoListener extends Protobuf3BaseListener {
             String beanMapType = String.format("Map<%s,%s>", keyType, valType);
             fieldInfo.setBeanType(beanMapType);
             if (MyPluginSettings.getInstance().isFieldToCamelCase()) {
-                fieldInfo.setBeanName(StrUtil.toCamelCase(fieldInfo.getPbName()));
+                fieldInfo.setBeanName(Utils.toCamelCase(fieldInfo.getPbName()));
             } else {
                 fieldInfo.setBeanName(fieldInfo.getPbName());
             }

@@ -9,8 +9,6 @@ import cn.bigfire.stuff.gentlp.GenStuffBean;
 import cn.bigfire.stuff.gentlp.GenStuffBeanLomBok;
 import cn.bigfire.stuff.util.ProtoListener;
 import cn.bigfire.stuff.util.Utils;
-import cn.hutool.core.io.IoUtil;
-import cn.hutool.core.util.StrUtil;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationDisplayType;
 import com.intellij.notification.NotificationGroup;
@@ -43,10 +41,9 @@ public class GenJavaBeanAction extends AnAction {
             //read proto str
             VirtualFile fileDirectory = virtualFile.getParent();
             String name = virtualFile.getName();
-            String before = StrUtil.subBefore(name, ".proto", true);
-            Utils.beanName = StrUtil.upperFirst(before);
-            byte[] bytes = IoUtil.readBytes(virtualFile.getInputStream());
-            String protoStr = new String(bytes, "UTF-8");
+            String before = Utils.subBefore(name, ".proto", true);
+            Utils.beanName = Utils.upperFirst(before);
+            String protoStr = Utils.readUTF8Str(virtualFile.getInputStream());
 
             //lexer parser
             CodePointCharStream input = CharStreams.fromString(protoStr);
@@ -57,10 +54,10 @@ public class GenJavaBeanAction extends AnAction {
             walker.walk(new ProtoListener(), parser.proto());
 
             //outputDir
-            String packPath = StrUtil.appendIfMissing(Utils.protoInfo.getPackageName().replace(".", "/"), "/");
-            String outputDir = StrUtil.appendIfMissing(fileDirectory.getPath(), "/");
-            if (StrUtil.isNotBlank(MyPluginSettings.getInstance().getOutputDirectory())) {
-                outputDir = StrUtil.appendIfMissing(MyPluginSettings.getInstance().getOutputDirectory(), "/");
+            String packPath = Utils.appendIfMissing(Utils.protoInfo.getPackageName().replace(".", "/"), "/");
+            String outputDir = Utils.appendIfMissing(fileDirectory.getPath(), "/");
+            if (Utils.isNotBlank(MyPluginSettings.getInstance().getOutputDirectory())) {
+                outputDir = Utils.appendIfMissing(MyPluginSettings.getInstance().getOutputDirectory(), "/");
             }
 
             //genDir

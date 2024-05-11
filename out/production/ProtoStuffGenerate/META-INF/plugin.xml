@@ -2,28 +2,37 @@
   <id>cn.bigfire.protosttuff.generate</id>
   <name>ProtoStuff Generate</name>
   <version>1.0</version>
-  <vendor email="dahuoyzs@qq.com" url="http://github.com/dahuoyzs">大火yzs github.com/dahuoyzs</vendor>
+  <vendor email="dahuoyzs@qq.com" url="http://github.com/dahuoyzs">大火yzs</vendor>
 
   <description><![CDATA[
 
-      <p>1.Generate standard JavaBean based on proto file.</p>
-      <p>2.Generate a JavaBean with protostuff @Tag annotation based on the proto file.</p>
-      <p>Usage: Right click on the proto file, GenJavaBean | | GenStuffBean</p>
+      <p>1.Generate standard JavaBean based on proto file</p>
+      <p>2.Generate a JavaBean with protostuff @Tag annotation based on the proto file</p>
+      <p>3.Generate a JavaBean with protostuff @Tag annotation based on the proto file.</p>
+      <p>4.Generate a JavaBean (LomBook) with protostuff @Tag annotation based on the proto file</p>
+      <p>Usage: Right click on the proto file, GenJavaBean</p>
 
-      <p>1.根据proto文件生成标准的javaBean。</p>
+      <p>1.根据proto文件生成标准的javaBean</p>
       <p>2.根据proto文件生成带有protostuff @Tag注解的javaBean</p>
-      <p>用法,右键proto文件，GenJavaBean || GenStuffBean</p>
+      <p>3.根据proto文件生成标准的javaBean(LomBook)</p>
+      <p>4.根据proto文件生成带有protostuff @Tag注解的javaBean(LomBook)</p>
+      <p>用法,右键proto文件，GenJavaBean</p>
 
     ]]></description>
 
   <change-notes><![CDATA[
       2024-5-10
-      <p>1.Generate standard JavaBean based on proto file.</p>
-      <p>2.Generate a JavaBean with protostuff @Tag annotation based on the proto file.</p>
-      <p>Usage: Right click on the proto file, GenJavaBean | | GenStuffBean</p>
-      <p>1.根据proto文件生成标准的javaBean。</p>
+      <p>1.Generate standard JavaBean based on proto file</p>
+      <p>2.Generate a JavaBean with protostuff @Tag annotation based on the proto file</p>
+      <p>3.Generate a JavaBean with protostuff @Tag annotation based on the proto file.</p>
+      <p>4.Generate a JavaBean (LomBook) with protostuff @Tag annotation based on the proto file</p>
+      <p>Usage: Right click on the proto file, GenJavaBean</p>
+
+      <p>1.根据proto文件生成标准的javaBean</p>
       <p>2.根据proto文件生成带有protostuff @Tag注解的javaBean</p>
-      <p>用法,右键proto文件，GenJavaBean || GenStuffBean</p>
+      <p>3.根据proto文件生成标准的javaBean(LomBook)</p>
+      <p>4.根据proto文件生成带有protostuff @Tag注解的javaBean(LomBook)</p>
+      <p>用法,右键proto文件，GenJavaBean</p>
     ]]>
   </change-notes>
 
