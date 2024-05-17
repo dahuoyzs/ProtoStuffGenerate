@@ -5,23 +5,19 @@
   <vendor email="dahuoyzs@qq.com" url="http://github.com/dahuoyzs">大火yzs</vendor>
 
   <description><![CDATA[
-
       <p>1.Generate standard JavaBean based on proto file</p>
       <p>2.Generate a JavaBean with protostuff @Tag annotation based on the proto file</p>
       <p>3.Generate a JavaBean with protostuff @Tag annotation based on the proto file.</p>
       <p>4.Generate a JavaBean (LomBook) with protostuff @Tag annotation based on the proto file</p>
       <p>Usage: Right click on the proto file, GenJavaBean</p>
-      issues:
-      https://github.com/dahuoyzs/ProtoStuffGenerate/issues
+      <p><a href="https://github.com/dahuoyzs/ProtoStuffGenerate/issues">Issues</a></p>
 
       <p>1.根据proto文件生成标准的javaBean</p>
       <p>2.根据proto文件生成带有protostuff @Tag注解的javaBean</p>
       <p>3.根据proto文件生成标准的javaBean(LomBook)</p>
       <p>4.根据proto文件生成带有protostuff @Tag注解的javaBean(LomBook)</p>
       <p>用法,右键proto文件，GenJavaBean</p>
-      问题反馈:
-      https://github.com/dahuoyzs/ProtoStuffGenerate/issues
-
+      <p><a href="https://github.com/dahuoyzs/ProtoStuffGenerate/issues">问题反馈</a>QQ:835476090</p>
 
     ]]></description>
 
