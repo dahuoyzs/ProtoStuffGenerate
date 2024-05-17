@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>cn.bigfire.protosttuff.generate</id>
   <name>ProtoStuff Generate</name>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <vendor email="dahuoyzs@qq.com" url="http://github.com/dahuoyzs">大火yzs</vendor>
 
   <description><![CDATA[

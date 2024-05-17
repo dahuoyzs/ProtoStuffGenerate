@@ -119,7 +119,7 @@ public class GenJavaBeanLomBok {
 
         protoInfo.getObjMap().forEach((objName,fieldInfos)->{
             //构建字符串
-            String beanStart = String.format(beanStartTlp, objName);
+            String beanStart ="public static class "+objName+" {\n";
 
             StringBuilder fieldSb = new StringBuilder();
             for (FieldInfo fieldInfo : fieldInfos) {
