@@ -38,9 +38,9 @@ public class Utils {
     }
 
     public static String getPackageStr() {
-        String packStr = "package " + Utils.protoInfo.getPackageName() + ";\n";
+        String packStr = "\n";
         if (Utils.isNotBlank(Utils.protoInfo.getPackageName())) {
-            packStr = "\n";
+            packStr = "package " + Utils.protoInfo.getPackageName() + ";\n";
         }
         return packStr;
     }

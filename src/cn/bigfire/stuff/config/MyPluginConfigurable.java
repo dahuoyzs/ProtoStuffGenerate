@@ -80,7 +80,7 @@ public class MyPluginConfigurable implements Configurable {
         });
 
         // 第三行  添加 fieldToCamelCase 选项
-        fieldToCamelCaseCheckBox = new JBCheckBox("fieldToCamelCase");
+        fieldToCamelCaseCheckBox = new JBCheckBox("FieldToCamelCase");
         fieldToCamelCaseCheckBox.setSelected(MyPluginSettings.getInstance().isLombokEnable());
         constraints.gridx = 0;
         constraints.gridy = 2;
